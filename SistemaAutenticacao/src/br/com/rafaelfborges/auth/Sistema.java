@@ -12,13 +12,30 @@ public class Sistema {
 		usuarios.add(usuario);
 	}
 	
-	public void autenticaUsuario(String usuario, String senha) {		
-		for(Usuario temp : usuarios) {
-			if(temp.getUsuario().equals(usuario) && temp.getSenha().equals(senha)) {
-				System.out.println("Bem vindo, " + temp.getUsuario() + ".");
-			} else {
-				System.out.println("Login ou senha incorreto, tente novamente mais tarde.");
+	public boolean autenticarUsuario(String usuario, String senha) {
+		Usuario temp = null;
+		for(Usuario u : usuarios) {
+			if(u.getUsuario().equals(usuario)) {
+				temp = u;
+				break;
 			}
 		}
+		if(temp != null) {
+			if(temp.getNumTentativas() > 0) {
+				if(temp.getSenha().equals(senha)) {
+					System.out.println("Sucesso, redirecionando...");
+					return true;
+				} else {
+					System.out.println("Usuário ou senha inválida!");
+					temp.setNumTentativas();
+				}
+			} else {
+				System.out.println("Usuário bloqueado, contate o administrador!");
+				return true;
+			}
+		} else {
+			System.out.println("Usuário ou senha inválida!");
+		}
+		return false;
 	}
 }
