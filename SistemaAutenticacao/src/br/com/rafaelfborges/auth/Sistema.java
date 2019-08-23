@@ -23,10 +23,10 @@ public class Sistema {
 		if(temp != null) {
 			if(temp.getNumTentativas() > 0) {
 				if(temp.getSenha().equals(senha)) {
-					System.out.println("Sucesso, redirecionando...");
+					System.out.println("Bem vindo, " + temp.getUsuario() + ".");
 					return true;
 				} else {
-					System.out.println("Usuário ou senha inválida!");
+					System.out.println("Login ou senha incorreto, tente novamente mais tarde.");
 					temp.setNumTentativas();
 				}
 			} else {
@@ -34,7 +34,7 @@ public class Sistema {
 				return true;
 			}
 		} else {
-			System.out.println("Usuário ou senha inválida!");
+			System.out.println("Login ou senha incorreto, tente novamente mais tarde.");
 		}
 		return false;
 	}
