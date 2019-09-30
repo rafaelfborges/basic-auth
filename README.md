@@ -1,4 +1,4 @@
-# basic-auth
+# Autenticação Básica
 Mecanismo de autenticação básica. Dois desafios de 10 minutos cada, proposto pela disciplina de Segurança da Informação para demonstrar fatores de autenticação.
 
 Desafio 1: Desenvolva um programa que realize a autenticação do usuário. Para isso o programa deve armazenar previamente o usuário e senha dos usuários. O usuário deve entrar com o login e senha no programa, e o sistema deve:
